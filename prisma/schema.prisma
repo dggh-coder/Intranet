@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Page {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  status      PageStatus @default(DRAFT)
+  seoTitle    String?
+  seoDesc     String?
+  pageLayout  Json
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model ThemeSettings {
+  id            String   @id @default(cuid())
+  siteName      String
+  brandColor    String
+  headerStyle   String
+  footerStyle   String
+  spacingScale  String
+  typography    String
+  defaultLayout String
+  updatedAt     DateTime @updatedAt
+}
+
+model NavigationItem {
+  id        String @id @default(cuid())
+  label     String
+  href      String
+  sortOrder Int
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
