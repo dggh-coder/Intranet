@@ -3,7 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  // Prisma uses the mysql connector for both MySQL and MariaDB deployments.
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
