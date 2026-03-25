@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color: #1d4ed8;
+  --site-bg: #f8fafc;
+  --site-surface: #ffffff;
+}
+
+body {
+  @apply bg-background text-slate-900;
+}
