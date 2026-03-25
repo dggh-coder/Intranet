@@ -1,6 +1,6 @@
 # Intranet Platform MVP (SharePoint-inspired)
 
-A practical MVP intranet platform built with **Next.js + TypeScript + Tailwind + Prisma + MySQL** that supports:
+A practical MVP intranet platform built with **Next.js + TypeScript + Tailwind + Prisma + MariaDB** that supports:
 
 - Admin-managed pages
 - Structured section/page-builder model
@@ -21,7 +21,7 @@ A practical MVP intranet platform built with **Next.js + TypeScript + Tailwind +
 3. **Domain layer (`lib/`)**
    - Typed models, web part registry, zod schemas
    - Shared auth/prisma helpers
-4. **Data layer (MySQL + Prisma)**
+4. **Data layer (MariaDB + Prisma)**
    - `Page`, `ThemeSettings`, `NavigationItem`, `AdminUser`
 
 ### Content model
@@ -133,6 +133,8 @@ Each web part has:
 Open:
 - Public sample homepage: `/home`
 - Admin dashboard: `/admin`
+
+> Note: Prisma uses the `mysql` connector for both MySQL and MariaDB. Keep `provider = \"mysql\"` in `schema.prisma` when targeting MariaDB.
 
 ## Tradeoffs and next steps
 
